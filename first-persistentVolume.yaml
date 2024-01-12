@@ -1,0 +1,14 @@
+# Description: This file is used to create a persistent volume
+# Example copied to cloud provider and executed there
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: first-persistentVolume
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: pv-disk # name of the disk
+  storageClassName: standard
