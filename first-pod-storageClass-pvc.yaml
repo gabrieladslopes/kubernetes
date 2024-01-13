@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: first-pod-storageClass-pvc
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: /volume-inside-container
+          name: first-sc
+  volumes:
+    - name: first-sc
+      persistentVolumeClaim:
+        claimName: first-storageClass-pvc
